@@ -1,0 +1,58 @@
+package com.cdac.act.model;
+
+public class Student {
+	private String firstName;
+	private String lastName;
+	private String rollNo;
+	private String standard;
+	private String division;
+	
+	public Student() {
+		super();
+	}
+
+
+	public Student(String firstName, String lastName, String rollNo, String standard, String division) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.rollNo = rollNo;
+		this.standard = standard;
+		this.division = division;
+	}
+
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public String getRollNo() {
+		return rollNo;
+	}
+
+
+	public String getStandard() {
+		return standard;
+	}
+
+
+	public String getDivision() {
+		return division;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Student [Name= " + firstName + lastName + ", rollNo= " + rollNo + ", standard= "
+				+ standard + ", division= " + division + "]";
+	}
+	
+	
+	
+}

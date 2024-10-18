@@ -1,0 +1,15 @@
+package com.cdac.act.model;
+
+public final class StudentKey {
+	 private final int rollno;
+	 private final String standard;
+	 private final String division;
+	 
+	 public StudentKey(int rno , String stand  , String divi)
+	 {
+		 this.standard = stand;
+		this.division= divi;
+		this.rollno = rno;
+		 
+	 }
+}

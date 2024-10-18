@@ -1,0 +1,51 @@
+package com.cdac.act.model;
+
+import java.util.Objects;
+
+public class Student {
+	private String firstName;
+	private String lastName;
+	private StudentKey key;
+	
+	public Student() {
+		super();
+	}
+
+
+	public Student(String firstName, String lastName, StudentKey key) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.key = new StudentKey(0, firstName, lastName);
+	}
+
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public StudentKey getKey() {
+		return key;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Student [firstName=" + firstName + ", lastName=" + lastName + ", key=" + key + "]";
+	}
+	
+	
+	
+
+
+}
+	
+	
+	
+}

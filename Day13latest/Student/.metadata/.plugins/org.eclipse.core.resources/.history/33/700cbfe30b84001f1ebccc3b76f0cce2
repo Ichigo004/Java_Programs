@@ -1,0 +1,106 @@
+package com.cdac.act.model;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class SchoolMain {
+
+	public static String generatekey(String rno ,String stand , String div )
+	{
+		return rno = "-" + stand + "-" + div;
+	}
+
+	public static void main(String[] args) {
+
+		Map<String, Student> studMap = new HashMap<>();
+
+		Scanner sc = new Scanner(System.in);
+		Integer choice;
+
+		do {
+
+			System.out.println("****School List****");
+			System.out.println("1 Add Student");
+			System.out.println("2 Find student using comibination of standard, division and roll no");
+			System.out.println("3 Print all students");
+			System.out.println("0 Exit");
+			System.out.println("Enter your choice");
+			choice = sc.nextInt();
+
+			switch (choice) {
+			case 1: {
+				sc.nextLine();
+				System.out.println("Enter the first name");
+				String fname = sc.nextLine();
+
+				System.out.println("Enter the last name");
+				String lname = sc.nextLine();
+
+				System.out.println("Enter the Roll number");
+				String rno = sc.nextLine();
+
+				System.out.println("Enter the Standard");
+				String stand = sc.nextLine();
+
+				System.out.println("Enter the division");
+				String div = sc.nextLine();
+
+				String key = generatekey(rno , stand , div);
+
+				if(null != studMap && studMap.isEmpty())
+				{
+					Student student = new Student(fname, lname, rno, stand, div);
+					studMap.put(key, student);
+				}
+				break;
+			}
+
+			case 2:
+			{
+				System.out.println("Enter Roll Number");
+				String searchRno = sc.nextLine();
+
+				System.out.print("Enter Standard: ");
+				String searchStandard = sc.nextLine();
+
+				System.out.print("Enter Division: ");
+				String searchDivision = sc.nextLine();
+
+				boolean found = false;
+				for (Map.Entry<String, Student> entry : studMap.entrySet()) {
+					Student s = entry.getValue();
+					if (s.getRollNo().equals(searchRno) && s.getStandard().equals(searchStandard) && s.getDivision().equals(searchDivision)) {
+						System.out.println(s);
+						found = true;
+					}
+				}
+				if (!found) {
+					System.out.println("No students found for Standard " + searchStandard + " and Division " + searchDivision);
+				}
+				break;
+
+			}
+
+			case 3:
+			{
+				for(Student student : studMap.values())
+				{
+					System.out.println(student);
+				}
+				break;
+			}
+
+			case 0:
+			{
+				break;
+			}
+
+			default:
+				throw new IllegalArgumentException("Unexpected value: " + choice);
+			}
+
+
+		} while (choice != 0);
+	}
+}

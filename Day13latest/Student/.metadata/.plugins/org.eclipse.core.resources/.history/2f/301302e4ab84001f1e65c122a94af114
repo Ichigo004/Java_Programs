@@ -1,0 +1,81 @@
+package com.cdac.act.model;
+
+import java.util.Objects;
+
+public class Student {
+	private String firstName;
+	private String lastName;
+	private String rollNo;
+	private String standard;
+	private String division;
+	
+	public Student() {
+		super();
+	}
+
+
+	public Student(String firstName, String lastName, String rollNo, String standard, String division) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.rollNo = rollNo;
+		this.standard = standard;
+		this.division = division;
+	}
+
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+	public String getRollNo() {
+		return rollNo;
+	}
+
+
+	public String getStandard() {
+		return standard;
+	}
+
+
+	public String getDivision() {
+		return division;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Student [Name= " + firstName + lastName + ", rollNo= " + rollNo + ", standard= "
+				+ standard + ", division= " + division + "]";
+	}
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(division,rollNo, standard);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		return Objects.equals(division, other.division) 
+				&&  Objects.equals(rollNo, other.rollNo)
+				&& Objects.equals(standard, other.standard);
+	}
+	
+	
+	
+}
